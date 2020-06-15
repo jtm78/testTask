@@ -7,12 +7,12 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void openBrowser() {
-        Navigation.toMainPage();
+        DriverManager.getInstance().getDriver().get("http://google.com");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void closeBrowser(){
         DriverManager.getInstance().destroy();
     }
